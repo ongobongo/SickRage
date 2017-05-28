@@ -32,15 +32,15 @@ from sickrage.helper.exceptions import ex
 
 class Notifier(object):
     def notify_snatch(self, ep_name):
-        if sickbeard.SYNOLOGYNOTIFIER_NOTIFY_ONSNATCH:
+        if sickbeard.USE_SYNOLOGYNOTIFIER and sickbeard.SYNOLOGYNOTIFIER_NOTIFY_ONSNATCH:
             self._send_synologyNotifier(ep_name, common.notifyStrings[common.NOTIFY_SNATCH])
 
     def notify_download(self, ep_name):
-        if sickbeard.SYNOLOGYNOTIFIER_NOTIFY_ONDOWNLOAD:
+        if sickbeard.USE_SYNOLOGYNOTIFIER and sickbeard.SYNOLOGYNOTIFIER_NOTIFY_ONDOWNLOAD:
             self._send_synologyNotifier(ep_name, common.notifyStrings[common.NOTIFY_DOWNLOAD])
 
     def notify_subtitle_download(self, ep_name, lang):
-        if sickbeard.SYNOLOGYNOTIFIER_NOTIFY_ONSUBTITLEDOWNLOAD:
+        if sickbeard.USE_SYNOLOGYNOTIFIER and sickbeard.SYNOLOGYNOTIFIER_NOTIFY_ONSUBTITLEDOWNLOAD:
             self._send_synologyNotifier(ep_name + ": " + lang, common.notifyStrings[common.NOTIFY_SUBTITLE_DOWNLOAD])
 
     def notify_git_update(self, new_version="??"):
